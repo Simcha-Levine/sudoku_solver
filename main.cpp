@@ -28,6 +28,8 @@ bool fill(int x, int y)
 {
     Point p = sudoku.nextPoint(x, y);
     // cout << p.x << " , " << p.y << '\n';
+
+    // when next point gets to the end
     if (p.x == -1)
     {
         return true;
@@ -38,7 +40,7 @@ bool fill(int x, int y)
         if (sudoku.isLegal(p.x, p.y, i))
         {
             sudoku.setCell(p.x, p.y, i);
-            if (p.x == -1 || fill(p.x, p.y))
+            if (fill(p.x, p.y))
             {
                 return true;
             }
